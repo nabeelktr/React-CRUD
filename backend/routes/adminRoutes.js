@@ -1,11 +1,11 @@
+import express  from "express";
+import { authAdmin,getUsers,searchUser } from "../controller/adminController";
+const router = express.Router()
 
 
-
-const  adminRoutes = () => {
-  
-    const y=2
-  
-}
+router.route('/login').post(authAdmin)
+router.route('/userdata').get(getUsers)
+router.route('/searchuser').post(searchUser)
 
 
-export default adminRoutes
+export default router

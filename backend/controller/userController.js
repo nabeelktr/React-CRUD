@@ -22,7 +22,7 @@ const authUser = AsyncHandler(async (req, res) => {
       throw new Error("Invlaid error");
     }
   
-    res.send({ email, password });
+    
   });
 
 const registerUser = AsyncHandler(async (req, res) => {

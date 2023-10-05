@@ -22,6 +22,7 @@ export const authSlice = createSlice({
            state.location = action.payload.location;
            state.img = action.payload.img;
         },
+       
         updatePicture:(state,action)=>{
             state.img = action.payload.img;
         }

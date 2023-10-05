@@ -8,7 +8,7 @@ import UpdateProfilePic from "./profile/UpdateProfilePic";
 
 const Profile = () => {
   const [modal, setmodal] = useState(false)
- const user= useSelector((state) => state)
+ const user= useSelector((state) => state.auth)
  const navigate = useNavigate()
 
 
