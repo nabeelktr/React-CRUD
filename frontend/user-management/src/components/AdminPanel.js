@@ -10,6 +10,7 @@ const AdminPanel = () => {
   const admin = useSelector((state) => state.admin);
   const logout = () => {
     localStorage.removeItem("adminToken");
+
     navigate("/admin");
   };
   return (

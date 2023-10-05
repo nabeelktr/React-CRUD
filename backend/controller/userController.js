@@ -7,7 +7,10 @@ const authUser = AsyncHandler(async (req, res) => {
   
     const user = await User.findOne({ email: email });
 
-    if (user && (await user.matchPassword(password))) {
+    if (user ) {
+      if((await user.matchPassword(password))){
+
+      
       res.json({
         _id: user._id,
         name: user.name,
@@ -21,6 +24,10 @@ const authUser = AsyncHandler(async (req, res) => {
       res.status(401);
       throw new Error("Invlaid error");
     }
+  }else{
+    res.status(402)
+    throw new Error("Invlaid user");
+  }
   
     
   });

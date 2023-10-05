@@ -6,10 +6,11 @@ import axios from '../../Axios'
 import { useDispatch } from 'react-redux'
 import { updatePicture } from '../../redux/features/authSlice'
 import { useNavigate } from 'react-router-dom'
+import { BeatLoader } from 'react-spinners'
 
 const UpdateProfilePic = ({modal,closeModal,id}) => {
 
-
+  const [load, setload] = useState(false)
   const [preview, setpreview] = useState(null)
   const cancelButtonRef = useRef(null)
   const dispatch = useDispatch()
@@ -22,6 +23,7 @@ const UpdateProfilePic = ({modal,closeModal,id}) => {
     setpreview(null)
   }
   const update =async ()=>{
+    setload(true)
     try{
       
       const res = await axios.post(`/updatePicture/${id}`,{image : preview})
@@ -31,6 +33,7 @@ const UpdateProfilePic = ({modal,closeModal,id}) => {
     }catch(err){
       console.log(err);
     }
+    setload(false)
   }
   return (
     <Transition.Root show={modal} as={Fragment}>
@@ -79,13 +82,14 @@ const UpdateProfilePic = ({modal,closeModal,id}) => {
                   </div>
                 </div>
                 <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                  {load ? <BeatLoader color="#6366F1" style={{ display:"flex", justifyContent:"center", alignItems:"center"}}/> :
                   <button
                     type="button"
                     className="inline-flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
                     onClick={ update}
                   >
                     Update
-                  </button>
+                  </button> }
                   <button
                     type="button"
                     className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"

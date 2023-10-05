@@ -5,18 +5,19 @@ import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import thunk from 'redux-thunk';
 
-const persistConfig = {
-  key: 'root',
-  storage,
-}
+const persistConfig = {key: 'root', storage}
+const persistAdminConfig = {key: 'adminRoot', storage}
+
+
+
 
 const persistedauthReducer = persistReducer(persistConfig, authReducer)
-const persistedadminAuthReducer = persistReducer(persistConfig, adminAuthReducer)
+const persistedadminAuthReducer = persistReducer(persistAdminConfig, adminAuthReducer)
 
 const store = configureStore({
   reducer: {
-    auth: persistedauthReducer, // Assuming "auth" is the key for authSlice
-    admin: persistedadminAuthReducer, // Assuming "admin" is the key for adminSlice
+    auth: persistedauthReducer, 
+    admin: persistedadminAuthReducer, 
   },
     middleware: [thunk]
   })

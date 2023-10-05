@@ -14,6 +14,7 @@ const Profile = () => {
 
  const logout =()=>{
   localStorage.removeItem('userToken')
+
   navigate('/')
  }
  const closeModal = () => {
