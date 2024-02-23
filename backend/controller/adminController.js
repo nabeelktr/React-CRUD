@@ -1,6 +1,6 @@
 import AsyncHandler from 'express-async-handler'
-import User from '../modals/userModal';
-import generateToken from '../utils/generateToken';
+import User from '../modals/userModal.js';
+import generateToken from '../utils/generateToken.js';
 
 
 

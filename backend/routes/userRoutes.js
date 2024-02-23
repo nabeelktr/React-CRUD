@@ -1,5 +1,5 @@
 import express  from "express";
-import { authUser, registerUser ,upadatePicture } from "../controller/userController";
+import { authUser, registerUser ,upadatePicture } from "../controller/userController.js";
 const router = express.Router()
 
 router.route('/register').post(registerUser)

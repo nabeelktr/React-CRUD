@@ -4,7 +4,7 @@ import cors from 'cors'
 import colors from "colors";
 import adminRouter from './routes/adminRoutes.js'
 import userRouter from "./routes/userRoutes.js"
-import connectDB from './config/db';
+import connectDB from './config/db.js';
 import { errorHandler } from './middleware/errorMiddleware.js';
 
 connectDB()
